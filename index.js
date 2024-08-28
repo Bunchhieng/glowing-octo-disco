@@ -30,6 +30,7 @@ function runSolutions(sourceCount) {
       syncLogSources.push(new LogSource());
     }
     try {
+      console.log("Sync sort start");
       require("./solution/sync-sorted-merge")(syncLogSources, new Printer());
       resolve();
     } catch (e) {
@@ -54,6 +55,7 @@ function runSolutions(sourceCount) {
       for (let i = 0; i < sourceCount; i++) {
         asyncLogSources.push(new LogSource());
       }
+      console.log("Async sort start");
       require("./solution/async-sorted-merge")(asyncLogSources, new Printer())
         .then(resolve)
         .catch(reject);
